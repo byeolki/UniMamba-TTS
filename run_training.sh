@@ -2,7 +2,8 @@
 
 set -e
 
-python unimamba_tts/cli/train.py --config configs/config.yaml
+export PATH="$HOME/.local/bin:$PATH"
+poetry run python unimamba_tts/cli/train.py --config configs/config.yaml
 
 CHECKPOINT_DIR="experiments/unimamba-tts/checkpoints"
 LATEST_CHECKPOINT="${CHECKPOINT_DIR}/latest.pt"
@@ -25,7 +26,7 @@ for i in "${!SENTENCES[@]}"; do
     TEXT="${SENTENCES[$i]}"
     OUTPUT_FILE="${OUTPUT_DIR}/result_sample_${i}.wav"
 
-    python unimamba_tts/cli/inference.py \
+    poetry run python unimamba_tts/cli/inference.py \
         --config configs/config.yaml \
         --checkpoint "$LATEST_CHECKPOINT" \
         --text "$TEXT" \

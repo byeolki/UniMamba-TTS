@@ -36,7 +36,7 @@ textgrid = "^1.6.0"
 wandb = "^0.18.0"
 python-dotenv = "^1.0.0"
 requests = "^2.31.0"
-mamba-ssm = "^2.0.0"
+# mamba-ssm installed separately via pip for CUDA compatibility
 
 [tool.poetry.group.dev.dependencies]
 jupyterlab = "^4.0.0"
